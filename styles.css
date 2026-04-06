@@ -540,7 +540,7 @@ p { color: var(--text-secondary); line-height: 1.75; }
   color: var(--teal);
   box-shadow: var(--shadow-lg);
   cursor: pointer;
-  z-index: 999;
+  z-index: 998;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px) scale(0.9);
@@ -558,6 +558,22 @@ p { color: var(--text-secondary); line-height: 1.75; }
   box-shadow: var(--shadow-teal);
   border-color: transparent;
 }
+
+/* ─── WhatsApp Button ─── */
+.wa-btn {
+  position: fixed;
+  bottom: 5.5rem; right: 1.75rem;
+  width: 55px; height: 55px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  cursor: pointer;
+  z-index: 998;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+.wa-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
 
 /* ─── Responsive ─── */
 @media (max-width: 1024px) {
