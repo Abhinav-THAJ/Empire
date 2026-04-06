@@ -86,16 +86,21 @@
   position: relative;
   transition: var(--transition);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .achievement-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); border-color: rgba(27,168,200,0.2); }
 .achievement-number {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 800;
-  color: var(--teal-pale);
+  color: var(--teal);
+  opacity: 0.08;
   line-height: 1;
   position: absolute;
-  top: 1rem; right: 1.5rem;
+  top: 10px; right: 10px;
   font-variant-numeric: tabular-nums;
+  z-index: 0;
+  pointer-events: none;
 }
 .achievement-stat {
   font-size: 3rem;
@@ -104,10 +109,11 @@
   line-height: 1;
   margin-bottom: 0.75rem;
   font-variant-numeric: tabular-nums;
+  position: relative; z-index: 1;
 }
 .achievement-stat span { font-size: 2rem; }
-.achievement-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
-.achievement-card p { font-size: 0.9rem; }
+.achievement-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+.achievement-card p { font-size: 0.9rem; position: relative; z-index: 1; }
 
 /* Vision & Mission */
 .vision-mission { background: var(--white); }
@@ -200,19 +206,18 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+  .achievements-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .vm-grid { grid-template-columns: 1fr 1fr; }
   .about-who-grid { gap: 3rem; }
 }
 @media (max-width: 768px) {
   .about-who-grid { grid-template-columns: 1fr; }
   .about-who-img { display: none; }
-  .achievements-grid { grid-template-columns: 1fr 1fr; }
+  .achievements-grid { grid-template-columns: 1fr; }
   .vm-grid { grid-template-columns: 1fr; }
   .why-us-compare { flex-direction: column; }
   .compare-vs { display: none; }
 }
 @media (max-width: 480px) {
-  .achievements-grid { grid-template-columns: 1fr; }
   .about-who-cta { flex-direction: column; }
 }
