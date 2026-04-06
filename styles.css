@@ -53,13 +53,18 @@
 
 /* ─── Reset & Base ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+html {
+  scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
 body {
   font-family: var(--font-primary);
   color: var(--text-primary);
   background: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
