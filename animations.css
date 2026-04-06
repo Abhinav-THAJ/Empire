@@ -1,0 +1,91 @@
+/* ============================================
+   EMPIRE AE — ANIMATIONS (No-JS fallback + utility)
+   All fade elements are visible by default.
+   JS adds .visible class to trigger the animation.
+   ============================================ */
+
+/* Make all animated elements visible immediately if not yet observed */
+.fade-up,
+.fade-left,
+.fade-right,
+.fade-in {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Once JS body class is set, enable the animation */
+body.js-ready .fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.js-ready .fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.js-ready .fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.js-ready .fade-in {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Visible state — works with or without body.js-ready */
+body.js-ready .fade-up.visible,
+body.js-ready .fade-left.visible,
+body.js-ready .fade-right.visible,
+body.js-ready .fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Delay utilities */
+body.js-ready .delay-1 { transition-delay: 0.1s !important; }
+body.js-ready .delay-2 { transition-delay: 0.2s !important; }
+body.js-ready .delay-3 { transition-delay: 0.3s !important; }
+body.js-ready .delay-4 { transition-delay: 0.4s !important; }
+body.js-ready .delay-5 { transition-delay: 0.5s !important; }
+body.js-ready .delay-6 { transition-delay: 0.6s !important; }
+
+/* Spinner for form submit button */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin { animation: spin 1s linear infinite; }
+
+/* Premium Animations */
+.scale-up {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.scale-up.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.blur-in {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+body:not(.js-ready) .scale-up,
+body:not(.js-ready) .blur-in {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
